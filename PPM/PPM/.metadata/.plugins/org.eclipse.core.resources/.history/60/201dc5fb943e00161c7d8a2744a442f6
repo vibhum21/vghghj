@@ -1,0 +1,84 @@
+package com.ppm.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ppm.dao.PortfolioDao;
+import com.ppm.model.PortfolioModel;
+
+@Repository
+public class PorfolioDaoImpl implements PortfolioDao{
+	protected EntityManager entityManager;
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+	
+	@PersistenceContext
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	@Override
+	public PortfolioModel getAllPortfolio() {
+		TypedQuery<PortfolioModel> qt = entityManager.createQuery("SELECT e FROM PortfolioModel e", PortfolioModel.class);
+		List<PortfolioModel> portfolioList = (List<PortfolioModel>)qt.getResultList();
+		System.out.println("employeeList"+portfolioList);
+		return portfolioList.get(0);
+	}
+	
+	@Override
+	@Transactional
+	public void addPortfolio(PortfolioModel portfolio) {
+		System.out.println("addPortfolio"+portfolio);
+		try{
+			entityManager.persist(portfolio);
+			entityManager.flush();
+		}catch(Exception ex){
+			System.out.println("Exception occured while saving portfolio"+ex.getMessage());
+			ex.printStackTrace();
+		}
+
+	}
+	
+	@Override
+	public PortfolioModel getPortfolio(int id) {
+		PortfolioModel portfolio = entityManager.find(PortfolioModel.class, id);
+		return portfolio;
+	}
+	
+	
+	@Override
+	@Transactional
+	public void updatePortfolio(PortfolioModel portfolio) {
+		PortfolioModel emp = new PortfolioModel();
+		emp = getPortfolio(portfolio.getProjectid());
+		//emp = getPortfolio(1);
+		System.out.println(emp);
+		emp.setProjName(portfolio.getName());
+		emp.setOwner(portfolio.getOwner());
+		emp.setBudget(portfolio.getBudget());
+		
+		entityManager.persist(emp);
+		//emp = getPortfolio(1);
+		System.out.println(emp);
+		
+	}
+	
+	
+	
+	@Override
+	@Transactional
+	public void deletePortfolio(int id) {
+		PortfolioModel portfolio = getPortfolio(id);
+		entityManager.remove(portfolio);
+		
+	}
+	
+}

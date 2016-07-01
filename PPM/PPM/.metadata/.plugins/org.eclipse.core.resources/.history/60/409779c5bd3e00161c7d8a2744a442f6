@@ -1,0 +1,12 @@
+package com.ppm.service;
+
+import com.ppm.dto.PortfolioDto;
+
+public interface PortfolioService {
+
+	public void addPortfolio(PortfolioDto employee);
+	public void updatePortfolio(PortfolioDto employee);
+	public PortfolioDto getAllPortfolio();
+	public void deletePortfolio(int id);
+	public PortfolioDto getPortfolio(int id);
+}

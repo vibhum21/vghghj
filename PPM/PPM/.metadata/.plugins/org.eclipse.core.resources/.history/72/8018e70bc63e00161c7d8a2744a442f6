@@ -1,0 +1,57 @@
+package com.ppm.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ppm.dao.PortfolioDao;
+import com.ppm.dto.PortfolioDto;
+import com.ppm.model.PortfolioModel;
+import com.ppm.populator.PortfolioPopulator;
+import com.ppm.service.ProjectEventService;
+
+@Service
+public class ProjectEventServiceImpl implements ProjectEventService{
+	@Autowired
+	ProjectEventDao projectEventDao;
+	
+	@Autowired
+	ProjectEventPopulator projectEventPopulator;
+	
+	@Override
+	public List<ProjectEventDto> getAllProjectEvent() {
+		
+		
+		List<ProjectEventDto> projectEventDtoList = new ArrayList<>();
+		List<ProjectEventModel> projectEventModelList  = (List<ProjectEventModel>) projectEventDao.getAllProjectEvent();
+		
+		
+		for (ProjectEventModel projectEventModel : projectEventModelList) {
+			ProjectEventDto projectEventDto = new ProjectEventDto();
+			portfolioPopulator.populate(projectEventModel,projectEventDto);
+			portfolioDtoList.add(projectEventDto);
+		}
+		
+		return projectEventDtoList;
+		
+	}
+	
+	@Override
+	public void addPortfolio(PortfolioDto portfolioDto) {
+		PortfolioModel portfolioModel = new PortfolioModel();
+		portfolioPopulator.populate(portfolioDto, portfolioModel);
+		portfolioDao.addPortfolio(portfolioModel);
+		
+	}
+	
+	
+	@Override
+	public PortfolioDto getPortfolio(int id) {
+		PortfolioDto portfolioDto = new PortfolioDto();
+		portfolioPopulator.populate(portfolioDao.getPortfolio(id),portfolioDto);
+		return portfolioDto;
+	}
+	
+}

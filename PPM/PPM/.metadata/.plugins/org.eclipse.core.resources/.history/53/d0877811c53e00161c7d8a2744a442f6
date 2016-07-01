@@ -1,0 +1,5 @@
+package com.ppm.service;
+
+public interface ProjectEventService {
+
+}

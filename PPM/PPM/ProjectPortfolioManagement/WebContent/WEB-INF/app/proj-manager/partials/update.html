@@ -1,0 +1,141 @@
+<div>
+	<div ng-controller="myctrl1" class="form-group" id="aDiv">
+		<div class="form-group" id="aDiv">
+			<div class="form-group">
+				<label for="Pname">Project Name:</label> <input type="text"
+					class="form-control" ng-model="projectName" autofocus />
+			</div>
+
+			<table>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project Type:&nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><select ng-model="projectType">
+							<option value="GreenField">GreenField</option>
+							<option value="Maintenance">Maintenance</option>
+							<option value="Support">Support</option>
+							<option value="QA">QA</option>
+							<option value="UX">UX</option>
+					</select></th>
+				</tr>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project Start Date : &nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><input type="date" class="form-control"
+						ng-model="projectStartDate" /></th>
+				</tr>
+				<br>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project End Date : &nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><input type="date" ng-model="projectEndDate"
+						class="form-control" /></th>
+				</tr>
+			</table>
+			<div class="form-group">
+				<label>Project Visible Duration:</label> <input type="int"
+					ng-model="projectVisibleDuration" class="form-control" />
+			</div>
+			<table>
+				<tr>
+					<th>
+						<div class="dropdown">
+							<label>Project Status:</label>
+						</div>
+					</th>
+					<th><select ng-model="projectStatus">
+							<option value="Tentive">Tentive</option>
+							<option value="Active">Active</option>
+							<option value="InActive">InActive</option>
+							<option value="Closed">Closed</option>
+							<option value="Completed">Completed</option>
+					</select></th>
+				</tr>
+				<tr>
+					<th>
+						<div class="dropdown">
+							<label>Project Methodology:</label>
+						</div>
+					</th>
+					<th><select ng-model="projectMethodology">
+							<option value="Waterfall">Waterfall</option>
+							<option value="Iterative">Iterative</option>
+							<option value="Scrum">Scrum</option>
+							<option value="Agile">Agile</option>
+							<option value="KanBan">KanBan</option>
+							<option value="AdHoc">AdHoc</option>
+					</select></th>
+				</tr>
+			</table>
+
+			<div class="form-group">
+				<label>Project Description:</label>
+				<textarea class="form-control" rows="5"
+					ng-model="projectDescription"></textarea>
+			</div>
+			<table>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project PM:&nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><select ng-model="projectPM">
+							<option value="DevPM">Dev PM</option>
+							<option value="QAPM">QA PM</option>
+							<option value="TechPM">Tech PM</option>
+					</select></th>
+				</tr>
+			</table>
+			<div class="form-group">
+				<label>Project DM:</label> <input type="text" ng-model="projectDM"
+					class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project AM:</label> <input type="text" ng-model="projectAM"
+					class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project Client:</label> <input type="text"
+					ng-model="projectClient" class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project Budget:</label> <input type="text"
+					ng-model="projectBudget" class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project EstimatedEffort:</label> <input type="text"
+					ng-model="projectEstimatedEffort" class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<button type="button" class="btn btn-danger">Submit</button>
+				&nbsp;&nbsp;&nbsp;
+				<button type="button" class="btn btn-danger">Clear All</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var project = angular.module('projApp', []);
+	project.controller('myctrl1', [ '$scope', function($scope) {
+
+		$scope.projectType = "GreenField";
+		$scope.projectStatus = "Tentive";
+		$scope.projectMethodology = "Waterfall";
+		$scope.projectPM = "DevPM";
+	} ]);
+</script>

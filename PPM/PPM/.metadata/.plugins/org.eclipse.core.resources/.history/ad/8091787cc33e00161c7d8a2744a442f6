@@ -1,0 +1,10 @@
+package com.ppm.dao.impl;
+
+import org.springframework.stereotype.Repository;
+
+import com.ppm.dao.ProjectEventDao;
+
+@Repository
+public class ProjectEventDaoImpl implements ProjectEventDao {
+
+}

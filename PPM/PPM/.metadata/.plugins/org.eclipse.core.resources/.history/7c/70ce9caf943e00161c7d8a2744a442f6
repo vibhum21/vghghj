@@ -1,0 +1,50 @@
+package com.ppm.dto;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.stereotype.Component;
+
+@XmlRootElement
+@Component
+public class PortfolioDto {
+	private int projId;
+	private String projName;
+	private double budget;
+	private String Owner;
+	
+	public PortfolioDto(){
+	}
+	public int getProjId() {
+		return projId;
+	}
+	public void setProjId(int projId) {
+		this.projId = projId;
+	}
+	public String getProjName() {
+		return projName;
+	}
+	public void setProjName(String projName) {
+		this.projName = projName;
+	}
+	public double getBudget() {
+		return budget;
+	}
+	public void setBudget(double budget) {
+		this.budget = budget;
+	}
+	public String getOwner() {
+		return Owner;
+	}
+	public void setOwner(String owner) {
+		Owner = owner;
+	}
+	public PortfolioDto(int projId, String projName, double budget, String owner) {
+		super();
+		this.projId = projId;
+		this.projName = projName;
+		this.budget = budget;
+		Owner = owner;
+	}
+	
+	
+}

@@ -1,0 +1,227 @@
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
+	close="closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">View Projects</li>
+			</ol>
+		</div>
+
+		<div class="table-responsive cart_info" data-ng-show="{{projs.size!=0}}" data-ng-init="refresh()">
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed" bordercolor="black">
+					<thead>
+						<tr class="cart_menu">
+							<td class="name">Name</td>
+							<td class="type">Type</td>
+							<td class="start">StartDate</td>
+							<td class="end">EndDate</td>
+							<td class="duration">Duration</td>
+							<td class="methodology">Methodology</td>
+							<td class="description">Description</td>
+							<td class="tools">Tools</td>
+							<td class="pm">PM</td>
+							<td class="dm">DM</td>
+							<td class="am">AM</td>
+							<td class="client">Client</td>
+							<td class="clientpoc">ClientPOC</td>
+							<td class="consultant">Consultant</td>
+							<td class="budget">Budget</td>
+							<td class="estimate">Estimate</td>
+						</tr>
+					</thead>
+				<tbody>
+					<tr data-ng-repeat="proj in projs">
+						
+                		
+                		<td>{{proj.name}}</td>
+                	
+                		
+                		<td>{{proj.type}}</td>
+                	
+                		
+                		<td>{{proj.startdate }}</td>
+                	
+                		
+                		<td>{{proj.enddate }}</td>
+                	
+                		
+                		<td>{{proj.visibleduration }}</td>
+                	
+                		<td>{{proj.status}}</td>
+                	
+                		
+                		<td>{{proj.methodology}}</td>
+                	
+                		
+                		<td>{{proj.description }}</td>
+                	
+                		
+                		<td>{{proj.tools }}</td>
+                	
+                		
+                		<td>{{proj.pm }}</td>
+                	
+                		
+                		<td>{{proj.dm }}</td>
+                	
+                		
+                		<td>{{proj.am }}</td>
+                	
+                		
+                		<td>{{proj.client }}</td>
+                	
+                		
+                		<td>{{proj.consultant }}</td>
+                	
+                		
+                		<td>{{proj.clientpoc }}</td>
+                	
+                		
+                		<td>{{proj.budget }}</td>
+                	
+                		
+                		<td>{{proj.estimatedeffort}}</td>
+                	
+                	
+						<td>
+						<button class="btn btn-sm btn-danger"
+								data-ng-click="openConfirm2()">Add To PortFolio</button>
+							<button class="btn btn-sm btn-danger"
+								data-ng-click="remove(proj)">Remove</button>
+							&nbsp;&nbsp;
+							<button class="btn btn-sm btn-warning" data-ng-click="openConfirm1()">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!--/#cart_items-->
+
+<script type="text/ng-template" id="newPortConfirmationModal.html">
+ 	   <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="dismissConfirm()">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+           
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <h5>Do you want to add a new Project To PortFolio with the following details?</h5>
+                <table class="table table-bordered">
+					<tr>
+                		<td>Project ID</td>
+                		<td>{{proj.projectid}}</td>
+                	</tr>
+                	<tr>
+                		<td>Project Name</td>
+                		<td>{{proj.name}}</td>
+                	</tr>
+                	<tr>
+                		<td>Budget</td>
+                		<td>{{proj.budget}}</td>
+                	</tr>
+                	<tr>
+                		<td>Owner</td>
+                		<td>{{proj.client }}</td>
+                	</tr> 
+                	
+                </table>
+            </div>
+           
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-ng-click="add()">yes</button>
+                <button type="button" class="btn btn-default" ng-click="dismissConfirm()">No! Wait</button>
+            </div>
+</script>
+
+<script type="text/ng-template" id="updateProjectConfirmationModal.html">
+ 	   <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="dismissConfirm()">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+           
+            <!-- Modal Body -->
+            <div class="modal-body" data-ng-repeat="proj in projs">
+                <h5>Do you want to update Project with the following details?</h5>
+                <table class="table table-bordered">
+					<tr>
+                		<td>Project ID</td>
+                		<td>{{proj.projectid}}</td>
+                	</tr>
+                	<tr>
+                		<td>Project Name</td>
+                		<td><input type="text" value="{{proj.name}}"/></td>
+                	</tr>
+                	<tr>
+                		<td>Project Type</td>
+                		<td><input type="text" value="{{proj.type}}"/></td>
+                	</tr>
+                	
+					<tr>
+                		<td>Project Visible Duration</td>
+                		<td><input type="text" value="{{proj.visibleduration }}"/></td>
+                	</tr> 
+                	<tr>
+                		<td>Project Status</td>
+                		<td><input type="text" value="{{proj.status}}"/></td>
+                	</tr>
+                	<tr>
+                		<td>Project Methodology</td>
+                		<td><input type="text" value="{{proj.methodology}}"/></td>
+                	</tr>
+                	<tr>
+                		<td>Project Description</td>
+                		<td><input type="text" value="{{proj.description }}"/></td>
+                	</tr> 
+<tr>
+                		<td>Project Tools</td>
+                		<td><input type="text" value="{{proj.tools }}"/></td>
+                	</tr> 
+<tr>
+                		<td>Project PM</td>
+                		<td><input type="text" value="{{proj.pm }}"/></td>
+                	</tr> 
+<tr>
+                		<td>Project DM</td>
+                		<td><input type="text" value="{{proj.dm }}"/></td>
+                	</tr> 
+                	<tr>
+                		<td>Project AM</td>
+                		<td><input type="text" value="{{proj.am }}"/></td>
+                	</tr> 
+<tr>
+                		<td>Project Client</td>
+                		<td><input type="text" value="{{proj.client }}"></td>
+                	</tr> 
+<tr>
+                		<td>Project Consultant</td>
+                		<td><input type="text" value="{{proj.consultant }}"/></td>
+                	</tr> <tr>
+                		<td>Project ClientPOC</td>
+                		<td><input type="text" value="{{proj.clientpoc }}"></td>
+                	</tr> 
+<tr>
+                		<td>Project Budget</td>
+                		<td><input type="text" value="{{proj.budget }}"/></td>
+                	</tr> 
+                	<tr>
+                		<td>Project Estimated Effort</td>
+                		<td><input type="text" value="{{proj.estimatedeffort}}"/></td>
+                	</tr>
+                	
+                </table>
+            </div>
+           
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-ng-click="update()">yes</button>
+                <button type="button" class="btn btn-default" ng-click="dismissConfirm()">No! Wait</button>
+            </div>
+</script>

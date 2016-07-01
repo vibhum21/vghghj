@@ -1,0 +1,11 @@
+package com.ppm.controller;
+
+import com.ppm.dto.PortfolioDto;
+
+public interface ToolsController {
+	public ToolsDto getAllTools();
+	public ToolsDto getTools(int id);
+	public ToolsDto addTools(ToolsDto portfolioDto);
+	public ToolsDto updateTools(ToolsDto portfolioDto);
+	public void deleteTools(int projectid);
+}

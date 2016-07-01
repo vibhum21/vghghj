@@ -1,0 +1,5 @@
+package com.ppm.dao;
+
+public class ConsultantDao {
+
+}

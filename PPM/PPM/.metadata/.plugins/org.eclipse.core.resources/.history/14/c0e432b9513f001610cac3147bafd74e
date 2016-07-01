@@ -1,0 +1,14 @@
+package com.ppm.controller;
+
+import java.util.List;
+
+import com.ppm.dto.PortfolioDto;
+import com.ppm.dto.ProjectDto;
+
+public interface ProjectController {
+	public ProjectDto getProject(int id);
+	public void deleteProject(int id);
+	public ProjectDto addProject(ProjectDto projectDto);
+	public ProjectDto updateProject(ProjectDto projectDto);
+	public List<ProjectDto> getAllProject();
+}

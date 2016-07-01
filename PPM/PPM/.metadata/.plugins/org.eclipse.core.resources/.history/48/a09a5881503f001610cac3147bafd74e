@@ -1,0 +1,5 @@
+package com.ppm.dao.impl;
+
+public class ProjectDaoImpl {
+
+}

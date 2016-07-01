@@ -1,0 +1,24 @@
+package com.ppm.populator;
+
+import org.springframework.stereotype.Component;
+
+import com.ppm.dto.PortfolioDto;
+import com.ppm.model.PortfolioModel;
+
+@Component
+public class PortfolioPopulator {
+	public void populate(PortfolioModel portfolioModel,PortfolioDto portfolioDto){
+		portfolioDto.setProjId(portfolioModel.getProjId());
+		portfolioDto.setProjName(portfolioModel.getProjName());
+		portfolioDto.setBudget(portfolioModel.getBudget());
+		portfolioDto.setOwner(portfolioModel.getOwner());
+	}
+	
+	public void populate(PortfolioDto portfolioDto,PortfolioModel portfolioModel){
+		
+		portfolioModel.setProjId(portfolioDto.getProjId());
+		portfolioModel.setProjName(portfolioDto.getProjName());
+		portfolioModel.setBudget(portfolioDto.getBudget());
+		portfolioModel.setOwner(portfolioDto.getOwner());
+	}
+}

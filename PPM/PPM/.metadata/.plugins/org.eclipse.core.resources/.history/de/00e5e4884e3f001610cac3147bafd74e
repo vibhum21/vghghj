@@ -1,0 +1,22 @@
+package com.ppm.populator;
+
+import org.springframework.stereotype.Component;
+
+
+@Component
+public class ProjectPopulator {
+	public void populate(ProjectModel projectModel,ProjectDto portfolioDto){
+		projectDto.setProjectid(projectModel.getProjectid());
+		projectDto.setName(projectModel.getName());
+		projectDto.setBudget(projectModel.getBudget());
+		projectDto.setOwner(projectModel.getOwner());
+	}
+	
+	public void populate(ProjectDto projectDto,ProjectModel projectModel){
+		
+		projectModel.setProjectid(projectDto.getProjectid());
+		projectModel.setName(projectDto.getName());
+		projectModel.setBudget(projectDto.getBudget());
+		projectModel.setOwner(projectDto.getOwner());
+	}
+}

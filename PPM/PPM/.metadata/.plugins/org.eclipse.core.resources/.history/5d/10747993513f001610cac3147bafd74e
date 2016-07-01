@@ -1,0 +1,11 @@
+package com.ppm.controller;
+
+import com.ppm.dto.ProjectDto;
+
+public interface ProjectController {
+	public ProjectDto getProject();
+	public void deleteProject(int id);
+	public void addProject(ProjectDto projectDto);
+	public void updateProject(ProjectDto projectDto);
+
+}

@@ -1,0 +1,13 @@
+package com.ppm.dao;
+
+import java.util.List;
+
+
+
+public interface ProjectEventDao {
+	public List<ProjectEventModel> getAllProjectEvent();
+	public void addPortfolio(ProjectEventModel projectEvent);
+	//public void updatePortfolio(PortfolioModel portfolio);
+	//public void deletePortfolio(int id);
+	public ProjectEventModel getProjectEvent(int id);
+}

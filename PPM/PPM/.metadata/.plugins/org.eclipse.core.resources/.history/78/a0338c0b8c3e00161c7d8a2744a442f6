@@ -1,0 +1,100 @@
+package com.ppm.controller.impl;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.ppm.controller.PortfolioController;
+import com.ppm.dto.PortfolioDto;
+import com.ppm.populator.PortfolioPopulator;
+import com.ppm.service.PortfolioService;
+
+@Path("/portfolioController")
+public class PortfolioControllerImpl implements PortfolioController{
+	
+	@Autowired 
+	PortfolioService portfolioService;
+	
+	@Autowired 
+	PortfolioPopulator portfolioPopulator;
+	
+	
+	@GET
+	@Path("/getAllPortfolio")
+	@Override
+	@Produces(MediaType.APPLICATION_XML)
+	public PortfolioDto getAllPortfolio() {
+		PortfolioDto pDto = portfolioService.getAllPortfolio();
+		return pDto;
+	}
+	
+	
+	
+
+
+	
+	
+	@POST
+	@Path("/addPortfolio")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public PortfolioDto addPortfolio(PortfolioDto portfolioDto1)
+	{
+		System.out.println("asdasdasdasd"+portfolioDto1.getProjId());
+		PortfolioDto portfolioDto  = new  PortfolioDto();
+		portfolioDto.setProjName("New Project");
+		portfolioDto.setBudget(12000);
+		
+		portfolioDto.setOwner("ruplesh");
+		portfolioService.addPortfolio(portfolioDto);
+		System.out.println("Controller end...");
+		System.out.println("Controller end...");
+		
+		return portfolioDto;
+		}
+	
+	
+	@GET
+	@Path("/getEmployee/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Override
+	public EmployeeDto getSingleEmployee(@PathParam("id") int id) {
+		System.out.println("Inside getSingleEmployee Controller");
+		EmployeeDto employeeDto = employeeService.getSingleEmployee(id);
+		return employeeDto;
+	}
+
+	
+
+	@PUT
+	@Path("/updateEmployee")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Override
+	public EmployeeDto updateEmployee(EmployeeDto employee){
+		
+		employeeService.updateEmployee(employee);
+		return employee;
+	}
+
+
+
+	@Override
+	@DELETE
+	@Path("/deletePortfolio/{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	
+	public void deletePortfolio(@PathParam("id") int id) {
+		portfolioService.deletePortfolio(id);
+	}
+	
+	
+}

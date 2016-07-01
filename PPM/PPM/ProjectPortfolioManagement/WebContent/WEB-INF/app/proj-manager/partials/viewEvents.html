@@ -1,0 +1,39 @@
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">View Projects</li>
+			</ol>
+		</div>
+
+		<div class="table-responsive cart_info" data-ng-show="{{events.size!=0}}" data-ng-init="refresh()">
+			<table class="table table-condensed" bordercolor="black">
+				<thead>
+					<tr class="cart_menu">
+						
+						<td class="name">Title</td>
+
+						<td class="description">Description</td>
+						<td class="type">Type</td>
+						<td class="response">Response</td>
+						<td class="RespondedBy">Responded By</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="event in events">
+						
+						<td>{{event.title}}</td>
+						<td>{{event.description}}</td>
+						<td>{{event.type}}</td>
+						<td>{{event.response}}</td>
+						<td>{{event.respondedby}}</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!--/#cart_items-->

@@ -1,0 +1,59 @@
+package com.ppm.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ppm.dao.ConsultantDao;
+import com.ppm.dto.ConsultantDto;
+
+import com.ppm.model.ConsultantModel;
+
+import com.ppm.populator.ConsultantPopulator;
+import com.ppm.service.ConsultantService;
+
+@Service
+public class ConsultantServiceImpl implements ConsultantService {
+	@Autowired
+	ConsultantDao consultantDao;
+	@Autowired
+	ConsultantPopulator consultantPopulator;
+	
+	
+	@Override
+	public ConsultantDto getAllConsultant() {
+		ConsultantDto portfolioDto = new ConsultantDto();
+		consultantPopulator.populate(consultantDao.getAllConsultant(),consultantDto);
+		return portfolioDto;
+	}
+	
+	@Override
+	public void addConsultant(ConsultantDto consultantDto) {
+		ConsultantModel consultantModel = new ConsultantModel();
+		consultantPopulator.populate(consultantDto, consultantModel);
+		consultantDao.addConsultant(consultantModel);
+		
+	}
+	
+	
+	@Override
+	public ConsultantDto getConsultant(int id) {
+		ConsultantDto consultantDto = new ConsultantDto();
+		consultantPopulator.populate(consultantDao.getConsultant(id),consultantDto);
+		return consultantDto;
+	}
+	
+	
+	@Override
+	public void updatePortfolio(PortfolioDto portfolioDto){
+		PortfolioModel portfolioModel = new PortfolioModel();
+		portfolioPopulator.populate(portfolioDto, portfolioModel);
+		System.out.println("inside service " +portfolioModel);
+		portfolioDao.updatePortfolio(portfolioModel);
+	}
+
+	@Override
+	public void deletePortfolio(int id) {
+		// TODO Auto-generated method stub
+		portfolioDao.deletePortfolio(id);
+	}
+}

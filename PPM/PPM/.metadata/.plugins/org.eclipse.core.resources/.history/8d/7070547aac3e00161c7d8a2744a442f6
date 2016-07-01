@@ -1,0 +1,12 @@
+package com.ppm.dao;
+
+import com.ppm.model.PortfolioModel;
+
+public interface PortfolioDao {
+	
+	public PortfolioModel getAllPortfolio();
+	public void addPortfolio(PortfolioModel portfolio);
+	public void updatePortfolio(PortfolioModel portfolio);
+	public void deletePortfolio(int id);
+	public PortfolioModel getPortfolio(int id);
+}

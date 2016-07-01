@@ -1,0 +1,111 @@
+
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
+	close="closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">View Product</li>
+			</ol>
+		</div>
+
+		<div class="container">
+			<div class="row text-center pad-top ">
+				<div class="col-md-12">
+					<h2>Add Project Events</h2>
+				</div>
+			</div>
+			<div class="row  pad-top">
+
+				<div
+					class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<form role="form">
+								<div class="form-group input-group">
+									<span class="input-group-addon"><i class ="fa fa-archive"></i></span>
+									<input type="text" class="form-control" data-ng-model="event.title"
+										placeholder="Event(s) Name" />
+								</div>
+								<div class="form-group input-group">
+									<span class="input-group-addon"><i class="fa fa-archive"></i></span>
+									<textarea class="form-control" data-ng-model="event.description"
+										placeholder="Event(s) Description"></textarea>
+								</div>
+
+								<div class="form-group">
+									<label>Event Type:</label> <select data-ng-model="event.type">
+										<option value="Risk">Risk</option>
+										<option value="Release">Release</option>
+										<option value="FeedBack">FeedBack</option>
+										<option value="Incident">Incident</option>
+									</select>
+								</div>
+								<div class="form-group input-group">
+									<span class="input-group-addon"><i class ="fa fa-archive"></i></span>
+									<textarea class="form-control" data-ng-model="event.response"
+										placeholder="Response"></textarea>
+								</div>
+								<div class="form-group input-group">
+									<span class="input-group-addon"><i class ="fa fa-archive"></i></span>
+									<input type="text" class="form-control" data-ng-model="event.respondedby"
+										placeholder="Responded By" />
+								</div>
+								<input type="submit" class="btn btn-primary" value="Add"
+										data-ng-click="openConfirm()"> 
+								<input type="reset"	class="btn btn-default" value="Clear">
+								<hr/>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--/#cart_items-->
+
+<script type="text/ng-template" id="newEventConfirmationModal.html">
+ 	   <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="dismissConfirm()">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+           
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <h5>Do you want to add a new Project To PortFolio with the following details?</h5>
+                <table class="table table-bordered">
+                	<tr>
+                		<td>Event Name</td>
+                		<td>{{event.title}}</td>
+                	</tr>
+                	<tr>
+                		<td>Event Description</td>
+                		<td>{{event.description}}</td>
+                	</tr>
+                	<tr>
+                		<td>Event Type</td>
+                		<td>{{event.type }}</td>
+                	</tr> 
+<tr>
+                		<td>Response</td>
+                		<td>{{event.response }}</td>
+                	</tr> 
+<tr>
+                		<td>Responded By</td>
+                		<td>{{event.respondedby }}</td>
+                	</tr> 
+                	
+                </table>
+            </div>
+           
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-ng-click="add()">yes</button>
+                <button type="button" class="btn btn-default" ng-click="dismissConfirm()">No! Wait</button>
+            </div>
+</script>
+

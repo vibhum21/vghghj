@@ -1,0 +1,12 @@
+package com.ppm.controller;
+
+import com.ppm.dto.PortfolioDto;
+
+
+public interface PortfolioController {
+	public PortfolioDto getAllPortfolio();
+	public PortfolioDto getPortfolio(int id);
+	public PortfolioDto addPortfolio(PortfolioDto portfolioDto);
+	public PortfolioDto updatePortfolio(PortfolioDto portfolioDto);
+	public void deletePortfolio(int projId);
+}

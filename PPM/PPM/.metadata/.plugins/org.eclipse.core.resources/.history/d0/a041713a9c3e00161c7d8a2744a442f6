@@ -1,0 +1,30 @@
+package com.ppm.controller.impl;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ppm.dto.PortfolioDto;
+import com.ppm.populator.ConsultantPopulator;
+import com.ppm.service.ConsultantService;
+
+@Path("/consultantController")
+public class ConsultantControllerImpl {
+	@Autowired
+	ConsultantService consultantService;
+	@Autowired
+	ConsultantPopulator consultantPopulator;
+	
+	@GET
+	@Path("/getAllConsultant")
+	@Override
+	@Produces(MediaType.APPLICATION_XML)
+	public PortfolioDto getAllConsultant() {
+		PortfolioDto pDto = consultantService.getAllConsultant();
+		return pDto;
+	}
+	
+}

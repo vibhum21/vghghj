@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.ws.rs.DELETE"/>
+<fullyQualifiedTypeName name="javax.ws.rs.PathParam"/>
+<fullyQualifiedTypeName name="javax.ws.rs.PUT"/>
+<fullyQualifiedTypeName name="com.ppm.controller.ConsultantController"/>
+<fullyQualifiedTypeName name="com.ppm.dao.ConsultantDao"/>
+<fullyQualifiedTypeName name="com.ppm.populator.ConsultantPopulator"/>
+<fullyQualifiedTypeName name="com.ppm.dto.ConsultantDto"/>
+<fullyQualifiedTypeName name="com.ppm.service.ConsultantService"/>
+<fullyQualifiedTypeName name="com.ppm.model.ConsultantModel"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.ppm.model.ProjectEventModel"/>
+<fullyQualifiedTypeName name="com.ppm.dao.ProjectEventDao"/>
+<fullyQualifiedTypeName name="com.ppm.service.ProjectEventService"/>
+<fullyQualifiedTypeName name="com.ppm.populator.ProjectEventPopulator"/>
+<fullyQualifiedTypeName name="com.ppm.dto.ProjectEventDto"/>
+<fullyQualifiedTypeName name="com.ppm.controller.ProjectEventController"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+<fullyQualifiedTypeName name="javax.persistence.PersistenceContext"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="com.ppm.model.ProjectModel"/>
+<fullyQualifiedTypeName name="com.ppm.dao.ProjectDao"/>
+<fullyQualifiedTypeName name="com.ppm.controller.ProjectController"/>
+<fullyQualifiedTypeName name="com.ppm.service.ProjectService"/>
+<fullyQualifiedTypeName name="com.ppm.populator.ProjectPopulator"/>
+<fullyQualifiedTypeName name="com.ppm.dto.ProjectDto"/>
+<fullyQualifiedTypeName name="com.ppm.dto.PortfolioDto"/>
+</qualifiedTypeNameHistroy>

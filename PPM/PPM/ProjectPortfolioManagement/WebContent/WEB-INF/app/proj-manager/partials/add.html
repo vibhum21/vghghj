@@ -1,0 +1,233 @@
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
+	close="closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}}</uib-alert>
+<div>
+	<div class="form-group" id="aDiv">
+		<div class="form-group" id="aDiv">
+			<div class="form-group">
+				<label for="Pname">Project Name:</label> <input type="text"
+					class="form-control" ng-model="proj.name" autofocus />
+			</div>
+
+			<table>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project Type:&nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><select ng-model="proj.type">
+							<option value="GreenField">GreenField</option>
+							<option value="Maintenance">Maintenance</option>
+							<option value="Support">Support</option>
+							<option value="QA">QA</option>
+							<option value="UX">UX</option>
+					</select></th>
+				</tr>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project Start Date : &nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><input type="date" class="form-control"
+						ng-model="proj.startdate" /></th>
+				</tr>
+				<br>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project End Date : &nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><input type="date" ng-model="proj.enddate"
+						class="form-control" /></th>
+				</tr>
+			</table>
+			<div class="form-group">
+				<label>Project Visible Duration:</label> <input type="int"
+					ng-model="proj.visibleduration" class="form-control" />
+			</div>
+			<table>
+				<tr>
+					<th>
+						<div class="dropdown">
+							<label>Project Status:</label>
+						</div>
+					</th>
+					<th><select ng-model="proj.status">
+							<option value="Tentive">Tentive</option>
+							<option value="Active">Active</option>
+							<option value="InActive">InActive</option>
+							<option value="Closed">Closed</option>
+							<option value="Completed">Completed</option>
+					</select></th>
+				</tr>
+				<tr>
+					<th>
+						<div class="dropdown">
+							<label>Project Methodology:</label>
+						</div>
+					</th>
+					<th><select ng-model="proj.methodology">
+							<option value="Waterfall">Waterfall</option>
+							<option value="Iterative">Iterative</option>
+							<option value="Scrum">Scrum</option>
+							<option value="Agile">Agile</option>
+							<option value="KanBan">KanBan</option>
+							<option value="AdHoc">AdHoc</option>
+					</select></th>
+				</tr>
+			</table>
+
+			<div class="form-group">
+				<label>Project Description:</label>
+				<textarea class="form-control" rows="5" ng-model="proj.description"></textarea>
+			</div>
+			<div class="form-group">
+				<label>Project Tools:</label>
+				<textarea class="form-control" rows="5" ng-model="proj.tools"></textarea>
+			</div>
+			<table>
+				<tr>
+					<th>
+						<div class="form-group">
+							<label>Project PM:&nbsp;&nbsp; </label>
+						</div>
+					</th>
+					<th><select ng-model="proj.pm">
+							<option value="DevPM">Dev PM</option>
+							<option value="QAPM">QA PM</option>
+							<option value="TechPM">Tech PM</option>
+					</select></th>
+				</tr>
+			</table>
+			<div class="form-group">
+				<label>Project DM:</label> <input type="text" ng-model="proj.dm"
+					class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project AM:</label> <input type="text" ng-model="proj.am"
+					class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project Client:</label> <input type="text"
+					ng-model="proj.client" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label>Project ClientPOC:</label>
+				<textarea class="form-control" rows="5" ng-model="proj.clientpoc"></textarea>
+			</div>
+			<div class="form-group">
+				<label>Project Consultant:</label>
+				<textarea class="form-control" rows="5" ng-model="proj.consultant"></textarea>
+			</div>
+			<div class="form-group">
+				<label>Project Budget:</label> <input type="text"
+					ng-model="proj.budget" class="form-control" />
+			</div>
+
+			<div class="form-group">
+				<label>Project EstimatedEffort:</label> <input type="text"
+					ng-model="proj.estimatedeffort" class="form-control" />
+			</div>
+
+			<input type="submit" class="btn btn-primary" value="Add"
+				data-ng-click="openConfirm()"> <input type="reset"
+				class="btn btn-default" value="Clear">
+			<hr />
+		</div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="newProjectConfirmationModal.html">
+ 	   <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="dismissConfirm()">&times;</button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+           
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <h5>Do you want to add a new Project with the following details?</h5>
+                <table class="table table-bordered">
+                	<tr>
+                		<td>Project Name</td>
+                		<td>{{proj.name}}</td>
+                	</tr>
+                	<tr>
+                		<td>Project Type</td>
+                		<td>{{proj.type}}</td>
+                	</tr>
+                	<tr>
+                		<td>Project Start Date</td>
+                		<td>{{proj.startdate }}</td>
+                	</tr> 
+<tr>
+                		<td>Project End Date</td>
+                		<td>{{proj.enddate }}</td>
+                	</tr> 
+<tr>
+                		<td>Project Visible Duration</td>
+                		<td>{{proj.visibleduration }}</td>
+                	</tr> 
+                	<tr>
+                		<td>Project Status</td>
+                		<td>{{proj.status}}</td>
+                	</tr>
+                	<tr>
+                		<td>Project Methodology</td>
+                		<td>{{proj.methodology}}</td>
+                	</tr>
+                	<tr>
+                		<td>Project Description</td>
+                		<td>{{proj.description }}</td>
+                	</tr> 
+<tr>
+                		<td>Project Tools</td>
+                		<td>{{proj.tools }}</td>
+                	</tr> 
+<tr>
+                		<td>Project PM</td>
+                		<td>{{proj.pm }}</td>
+                	</tr> 
+<tr>
+                		<td>Project DM</td>
+                		<td>{{proj.dm }}</td>
+                	</tr> 
+                	<tr>
+                		<td>Project AM</td>
+                		<td>{{proj.am }}</td>
+                	</tr> 
+<tr>
+                		<td>Project Client</td>
+                		<td>{{proj.client }}</td>
+                	</tr> 
+<tr>
+                		<td>Project Consultant</td>
+                		<td>{{proj.consultant }}</td>
+                	</tr> <tr>
+                		<td>Project ClientPOC</td>
+                		<td>{{proj.clientpoc }}</td>
+                	</tr> 
+<tr>
+                		<td>Project Budget</td>
+                		<td>{{proj.budget }}</td>
+                	</tr> 
+                	<tr>
+                		<td>Project Estimated Effort</td>
+                		<td>{{proj.estimatedeffort}}</td>
+                	</tr>
+                	
+                </table>
+            </div>
+           
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-ng-click="add()">yes</button>
+                <button type="button" class="btn btn-default" ng-click="dismissConfirm()">No! Wait</button>
+            </div>
+</script>
+
+

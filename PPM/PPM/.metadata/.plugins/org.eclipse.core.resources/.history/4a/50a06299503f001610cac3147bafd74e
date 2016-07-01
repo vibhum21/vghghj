@@ -1,0 +1,38 @@
+package com.ppm.dao.impl;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ppm.model.ProjectModel;
+
+@Repository
+public class ProjectDaoImpl implements ProjectDao {
+	protected EntityManager entityManager;
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+	
+	@PersistenceContext
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	@Transactional
+	@Override
+	public void addProject(ProjectModel projectModel) {
+
+		try{
+			entityManager.persist(projectModel);
+			entityManager.flush();
+		}catch(Exception ex){
+			System.out.println("Exception occured while saving portfolio"+ex.getMessage());
+			ex.printStackTrace();
+		}
+
+		
+	}
+}

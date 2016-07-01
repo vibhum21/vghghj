@@ -1,0 +1,26 @@
+package com.ppm.populator;
+
+import org.springframework.stereotype.Component;
+
+import com.ppm.dto.PortfolioDto;
+import com.ppm.dto.ProjectEventDto;
+import com.ppm.model.PortfolioModel;
+import com.ppm.model.ProjectEventModel;
+
+@Component
+public class ProjectEventPopulator {
+	public void populate(ProjectEventModel projectEventModel,ProjectEventDto projectEventDto){
+		projectEventDto.setProjecteventid(projectEventModel.getProjecteventid());
+		projectEventDto.setTitle(projectEventModel.getTitle());
+		projectEventDto.setDescription(projectEventModel.getDescription());
+		projectEventDto.setType(projectEventModel.getType());
+	}
+	
+	public void populate(ProjectEventDto projectEventDto,ProjectEventModel projectEventModel){
+		
+		projectEventModel.setProjectid(projectEventDto.getProjectid());
+		projectEventModel.setName(projectEventDto.getName());
+		projectEventModel.setBudget(projectEventDto.getBudget());
+		projectEventModel.setOwner(projectEventDto.getOwner());
+	}
+}

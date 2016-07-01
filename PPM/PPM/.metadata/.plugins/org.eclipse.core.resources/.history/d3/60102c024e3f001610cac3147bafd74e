@@ -1,0 +1,26 @@
+package com.ppm.dto;
+
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.springframework.stereotype.Component;
+@XmlRootElement
+@Component
+public class ProjectDto {
+	private int projectid;
+	private String name;
+	private String type;
+	private Date startDate;
+	private Date endDate;
+	private int visibleduration;
+	private String status;
+	private String methodology;
+	private String description;
+	private String pm;
+	private String dm;
+	private String am;
+	private String client;
+	private double budget;
+	private String estimatedEffort;
+}

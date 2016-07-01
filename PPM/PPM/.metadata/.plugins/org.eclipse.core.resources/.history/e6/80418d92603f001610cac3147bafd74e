@@ -1,0 +1,99 @@
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">View Projects</li>
+			</ol>
+		</div>
+
+		<div class="table-responsive cart_info" data-ng-show="{{ports.size!=0}}" data-ng-init="refresh()">
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed" bordercolor="black">
+					<thead>
+						<tr class="cart_menu">
+							<td class="name">Name</td>
+							<td class="type">Type</td>
+							<td class="start">StartDate</td>
+							<td class="end">EndDate</td>
+							<td class="duration">Duration</td>
+							<td class="methodology">Methodology</td>
+							<td class="description">Description</td>
+							<td class="tools">Tools</td>
+							<td class="pm">PM</td>
+							<td class="dm">DM</td>
+							<td class="am">AM</td>
+							<td class="client">Client</td>
+							<td class="clientpoc">ClientPOC</td>
+							<td class="consultant">Consultant</td>
+							<td class="budget">Budget</td>
+							<td class="estimate">Estimate</td>
+						</tr>
+					</thead>
+				<tbody>
+					<tr data-ng-repeat="proj in projs">
+						<tr>
+                		
+                		<td>{{proj.name}}</td>
+                	
+                		
+                		<td>{{proj.type}}</td>
+                	
+                		
+                		<td>{{proj.startdate }}</td>
+                	
+                		
+                		<td>{{proj.enddate }}</td>
+                	
+                		
+                		<td>{{proj.visibleduration }}</td>
+                	
+                		<td>{{proj.status}}</td>
+                	
+                		
+                		<td>{{proj.methodology}}</td>
+                	
+                		
+                		<td>{{proj.description }}</td>
+                	
+                		
+                		<td>{{proj.tools }}</td>
+                	
+                		
+                		<td>{{proj.pm }}</td>
+                	
+                		
+                		<td>{{proj.dm }}</td>
+                	
+                		
+                		<td>{{proj.am }}</td>
+                	
+                		
+                		<td>{{proj.client }}</td>
+                	
+                		
+                		<td>{{proj.consultant }}</td>
+                	
+                		
+                		<td>{{proj.clientpoc }}</td>
+                	
+                		
+                		<td>{{proj.budget }}</td>
+                	
+                		
+                		<td>{{proj.estimatedeffort}}</td>
+                	
+                	
+						<td>
+							<button class="btn btn-sm btn-danger"
+								data-ng-click="remove(proj)">Remove</button>
+							&nbsp;&nbsp;
+							<button class="btn btn-sm btn-warning">Update</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+<!--/#cart_items-->
